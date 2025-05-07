@@ -1,8 +1,8 @@
 module github.com/Method-Security/codeanalyze
 
-go 1.22
+go 1.24
 
-toolchain go1.22.4
+toolchain go1.24.2
 
 require (
 	github.com/Method-Security/pkg v0.0.2

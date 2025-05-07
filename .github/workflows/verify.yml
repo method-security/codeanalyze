@@ -1,12 +1,7 @@
 name: 🙏🏻 Verify
 
 on:
-  pull_request:
-    paths:
-      - "**.*"
-  push:
-    branches:
-      - develop
+  workflow_call:
 
 jobs:
   verify:
@@ -15,9 +10,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Install Dependences
-        run: sudo apt install libpcap-dev
+      - name: Install Dependencies
+        run: sudo apt-get update && sudo apt-get install -y libpcap-dev
 
       - name: Godel Verify
         run: ./godelw verify
